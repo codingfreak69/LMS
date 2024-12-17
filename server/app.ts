@@ -2,9 +2,9 @@ require('dotenv').config();
 import express, {NextFunction,Response, Request } from "express";
 import {ErrorMiddleware} from "./middleware/error";
 export const app = express();
-
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import userRouter from "./routes/user.route";
 
 //body parser
 
@@ -21,6 +21,11 @@ app.use(cors({
 }));
 // using the errorhandlers///////////////////////////////////
 app.use(ErrorMiddleware);
+
+
+/////////////////////////////////using the routes//////////////////////////////
+app.use("/api/v1",userRouter);
+
 
 //testing the api
 

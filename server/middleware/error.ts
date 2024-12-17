@@ -12,7 +12,7 @@ export const ErrorMiddleware = (
     err.message = err.message || 'internal server error';
 
     //invalid mongodb id
-    if(err.name = 'castError'){
+    if(err.name === 'castError'){
         const message = 'Resource not found , invalid: $(err.path)';
         err = new ErrorHandler(message, 400);
     }
